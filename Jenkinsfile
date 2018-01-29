@@ -9,16 +9,15 @@ stage "Update version"
                 script: "git show -s --format='%%an' HEAD",
                 returnStdout: true
                 ).split('\r\n')[2].trim()
-
+    
     echo "The last commit was written by ${AUTHOR_NAME}."
     }
 stage "Update version"
     node {
-        set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-        bat 'python --file "vesion.h" '
+        if ($(AUTHOR_NAME) == 'epozine')
+            set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
+            bat 'python --file "vesion.h" '
+        else {
+            echo "no new commits"
     }
 
-stage "Commit changes"
-    node {
-        echo "Done"
-    }
