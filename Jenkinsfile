@@ -20,7 +20,8 @@ node ("Deploy")
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
                        python read_version.py --file version.h --prefix "#define version_build" """,
             returnStdout: true
-            ).split('\r\n').trim()
+            )
+            echo OLD_VERSION
         NEW_VERSION = bat (
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
                        python inc_version.py --version ${OLD_VERSION} """,
