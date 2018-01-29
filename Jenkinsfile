@@ -16,7 +16,7 @@ node ("Deploy")
     
     stage "Update version"
     
-    if (AUTHOR_NAME == "'epozine'") {
+    if (AUTHOR_NAME != "'radeonprorender'") {
         bat """         
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
             python update.py --file "version.h"
