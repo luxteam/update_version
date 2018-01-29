@@ -3,7 +3,7 @@ stage "Checkout"
     node {
         checkout scm
     }
-stage "Update version"
+stage "Get author"
     node {
         AUTHOR_NAME = bat (
                 script: "git show -s --format='%%an' HEAD",
@@ -14,7 +14,7 @@ stage "Update version"
     }
 stage "Update version"
     node {
-        if ($(AUTHOR_NAME) == 'epozine') {
+        if (AUTHOR_NAME == 'epozine') {
         bat """
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
             python --file "vesion.h"
