@@ -18,13 +18,17 @@ def main():
     seach = "#define version_build"
     digit = ""
 
-    with open(file) as f:
+    with open(file, encoding="utf8") as f:
         for line in f:
             if line.find(seach) != -1:
                 found = line
 
-    for i in filter(str.isdigit, found):
-        digit += i
+    try:
+        for i in filter(str.isdigit, found):
+            digit += i
+    except UnboundLocalError:
+        print("Error. No search string.")
+        exit(0)
 
     try:
         
@@ -37,11 +41,11 @@ def main():
             result = found.replace(digit, str(set))
             print("SUCCES. Version build = ", set)
 
-        with open(file, "r") as f1:
+        with open(file, "r", encoding="utf8") as f1:
             text =  f1.read()
 
         text = text.replace(found, result)
-        with open(file, "w") as f2:
+        with open(file, "w", encoding="utf8") as f2:
             f2.write(text)
 
     except ValueError:
