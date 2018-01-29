@@ -6,8 +6,7 @@ node ("Deploy")
     stage "Get author"
     
     AUTHOR_NAME = bat (
-            script: """ git checkout master
-                        git show -s --format='%%an' HEAD  """,
+            script: "git show -s --format='%%an' HEAD ",
             returnStdout: true
             ).split('\r\n')[2].trim()
 
