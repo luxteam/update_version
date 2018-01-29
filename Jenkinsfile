@@ -17,7 +17,7 @@ stage "Update version"
     node {
         if (AUTHOR_NAME != 'epozine') {
             bat """
-                ls
+                dir
                 cd update_version
                 set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
                 python update.py--file "vesion.h"
