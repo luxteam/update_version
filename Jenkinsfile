@@ -11,10 +11,11 @@ stage "Get author"
                 ).split('\r\n')[2].trim()
     
     echo "The last commit was written by ${AUTHOR_NAME}."
+    echo AUTHOR_NAME
     }
 stage "Update version"
     node {
-        if (AUTHOR_NAME == 'epozine') {
+        if (AUTHOR_NAME != 'epozine') {
         bat """
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
             python --file "vesion.h"
