@@ -21,7 +21,7 @@ stage "Update version"
                 python update.py --file "version.h"
                 git add version.h
                 git commit -m "Update version build"
-                git push
+                git push origin HEAD:master --force
 
                """
         }
