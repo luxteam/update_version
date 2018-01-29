@@ -3,22 +3,23 @@ pipeline {
         label 'Windows'
         }
         stages {
-                stage "Checkout"
-                    node {
+                stage ("Checkout") {
+                    steps {
                         checkout scm
                     }
-                stage "Get author"
-                    node {
+                }
+                stage ("Get author"){
+                    steps {
                         AUTHOR_NAME = bat (
                                 script: "git show -s --format='%%an' HEAD",
                                 returnStdout: true
                                 ).split('\r\n')[2].trim()
 
-                    echo "The last commit was written by ${AUTHOR_NAME}."
-                    echo AUTHOR_NAME
-                    }
-                stage "Update version"
-                    node {
+                                echo "The last commit was written by ${AUTHOR_NAME}."
+                        }
+                }
+                stage ("Update version") {
+                    steps {
                         if (AUTHOR_NAME != 'epozine') {
                             bat """         
                                 set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
@@ -33,6 +34,8 @@ pipeline {
                             echo "no new commits"
                         }
                     }
+                }
         }
 }
+
 
