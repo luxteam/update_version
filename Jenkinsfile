@@ -25,7 +25,6 @@ node ("Deploy")
                        python inc_version.py --version ${OLD_VERSION} """,
             returnStdout: true
             ).split('\r\n')[4].trim()
-            echo NEW_VERSION
         bat """         
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
             python write_version.py --file version.h --prefix "#define version_build" --version ${NEW_VERSION}
