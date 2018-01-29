@@ -1,4 +1,4 @@
-label 'Windows', ' gpuNVIDIA_GF1080TI'
+label 'Windows'
 stage "Checkout"
     node {
         checkout scm
