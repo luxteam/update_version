@@ -1,4 +1,4 @@
-agent 'Windows'
+label 'Windows'
 stage "Checkout"
     node {
         checkout scm
