@@ -23,7 +23,7 @@ node ("Deploy")
             )
         NEW_VERSION = bat (
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-                       python inc_version.py --version ${VERSION} """,
+                       python inc_version.py --version ${OLD_VERSION} """,
             returnStdout: true
             )
         bat """         
