@@ -1,5 +1,6 @@
 /*
  * Класс, описывающий простуюs дробь
+ * test commit
 */
 class simple_fraction
 {
