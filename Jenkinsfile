@@ -25,7 +25,7 @@ node ("Deploy")
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
                        python inc_version.py --version ${OLD_VERSION} """,
             returnStdout: true
-            ).split('\r\n')[1].trim()
+            ).split('\r\n')[4].trim()
             echo NEW_VERSION
         bat """         
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
