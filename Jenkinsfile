@@ -14,6 +14,7 @@ stage "Update version"
     }
 stage "Update version"
     node {
+        set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
         bat 'python --file "vesion.h" '
     }
 
