@@ -14,7 +14,7 @@ stage "Get author"
     }
 stage "Update version"
     node {
-        if (AUTHOR_NAME != 'epozine') {
+        if (AUTHOR_NAME == 'epozine') {
             bat """         
                 set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
                 python update.py --file "version.h"
@@ -24,6 +24,7 @@ stage "Update version"
                """
         }
         else {
+            echo AUTHOR_NAME
             echo "no new commits"
         }
     }
