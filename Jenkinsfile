@@ -14,12 +14,14 @@ stage "Update version"
     }
 stage "Update version"
     node {
-        if ($(AUTHOR_NAME) == 'epozine')
+        if ($(AUTHOR_NAME) == 'epozine') {
         bat """
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
             python --file "vesion.h"
             """
+        }
         else {
             echo "no new commits"
+        }
     }
 
