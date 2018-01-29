@@ -19,6 +19,10 @@ stage "Update version"
             bat """         
                 set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
                 python update.py --file "version.h"
+                git add version.h
+                git commit -m "Update version build"
+                git push
+
                """
         }
         else {
