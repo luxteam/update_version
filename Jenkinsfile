@@ -1,5 +1,5 @@
-
+label 'Windows'
 node {
     checkout scm 
-    /* .. snip .. */
+    bat 'git clone https://github.com/Radeon-Pro/RadeonProRenderBlenderAddon'
 }
