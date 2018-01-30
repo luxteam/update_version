@@ -13,7 +13,7 @@ public:
         this->denominator = denominator;
     }
 
-#define version_build 1.3.21.1000
+#define version_build 2.3.22.2000
 
     // Определение основных математических операций для простой дроби
     double operator+ (int val) { return number() + val; } // Сложение
