@@ -1,19 +1,20 @@
 import argparse
 import sys
+import re
 
 def main():
 
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('--file', required = True)
-	parser.add_argument('--prefix', required = True)
-	parser.add_argument('--quotes', type=bool)
+	parser.add_argument('--file', required = True, help = 'File with build version string')
+	parser.add_argument('--prefix', required = True, help = 'Prefix before build version')
 
 	args = parser.parse_args()
 
 	file = args.file
 	prefix = args.prefix
-	old_version = ""
+
+	old_version = []
 
 	with open(file, encoding="utf8") as f:
 		for line in f:
@@ -21,13 +22,21 @@ def main():
 				prefix_line = line
 
 	try:
-		# TODO make more complex version parse support 
-		for i in filter(str.isdigit, prefix_line):
-			old_version += i
-		if (old_version != ""):
-		  print(old_version)
-		else:
-			print("No version number")
+
+		old_version = re.findall(r'\d+.\d+.\d+.\d+', prefix_line)
+
+		if len(old_version) == 0:
+			old_version = re.findall(r'\d+.\d+.\d+', prefix_line)
+			if len(old_version) == 0:
+				old_version = re.findall(r'\d+.\d+', prefix_line)
+				if len(old_version) == 0: 
+					old_version = re.findall(r'\d+', prefix_line)
+
+		if len(old_version) == 0:
+			print("Unsupported version. No numbers in prefix line.")
+		else:	
+			print(old_version[0])
+				
 	except UnboundLocalError:
 		print("Error. No search string.")
 		exit(0)
