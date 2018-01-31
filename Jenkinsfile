@@ -32,7 +32,7 @@ node ("Deploy")
             python write_version.py --file version.h --prefix "#define version_build" --version ${NEW_VERSION}
             git add version.h
             git commit -m "Update version build"
-            git push 
+            git push origin HEAD:master --force
            """
     }
     else {
