@@ -1,4 +1,4 @@
-node ("Deploy")
+node ("Windows && Builder")
 {
     stage "Checkout"
     checkout scm
