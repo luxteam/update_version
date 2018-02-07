@@ -1,2 +1,2 @@
-python inc_version.py --version 121.123.1231.111 --index 4
+python version_inc.py --version "2,3,2,2" --index 4 --delimiter ,
 pause

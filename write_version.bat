@@ -1,3 +1,3 @@
-python write_version.py --file version.h --prefix "#define version_build" --version "1.3.21.1000" 
+python version_write.py --file version.h --prefix "#define version_build" --version "2,3,2,4" --delimiter ,
 
 pause

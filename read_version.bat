@@ -1,2 +1,2 @@
-python read_version.py --file version.h --prefix "#define version_build"
+python version_read.py --file version.h --prefix "#define version_build" --delimiter ,
 pause
