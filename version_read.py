@@ -15,8 +15,9 @@ def main():
 	file = args.file
 	prefix = args.prefix
 	delimiter = args.delimiter
-	print("PREFIX: " + prefix)
 	print("DELIMITER: " + delimiter)
+	print("PREFIX: " + prefix)
+	
 
 	old_version = []
 
