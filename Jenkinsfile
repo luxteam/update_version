@@ -15,11 +15,9 @@ node ("Windows && Builder")
     stage "Update version"
     
     if (AUTHOR_NAME != "'radeonprorender'") {
-        char dm = (char) 34
-        String version = dm + "version:" + dm + " ("
         OLD_VERSION = bat (
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-                       python version_read.py --file init.py  --prefix version --delimiter ", "  """,
+                       python version_read.py --file init.py  --prefix "\"version\": (" --delimiter ", "  """,
             returnStdout: true
             )
         echo OLD_VERSION
