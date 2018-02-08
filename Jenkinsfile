@@ -24,7 +24,7 @@ node ("Windows && Builder")
         
         NEW_VERSION = bat (
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-                       python version_inc.py --version ${OLD_VERSION} --index 3 --delimiter ", "   """,
+                       python version_inc.py --version "${OLD_VERSION}" --index 3 --delimiter ", "   """,
             returnStdout: true
             ).split('\r\n')[4].trim()
         echo NEW_VERSION
