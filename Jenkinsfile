@@ -31,7 +31,7 @@ node ("Windows && Builder")
         bat """         
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
             python version_write.py --file init.py --prefix "'version': (" --version "${NEW_VERSION}" --delimiter ", "
-            git add version.h
+            git add init.py
             git commit -m "Update version build"
             git push origin HEAD:master
            """
