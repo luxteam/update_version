@@ -1,2 +1,2 @@
-python version_inc.py --version "2,3,2,2" --index 4 --delimiter ,
+python version_inc.py --version "1, 5, 3" --index 3 --delimiter ", "
 pause
