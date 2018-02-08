@@ -17,7 +17,7 @@ def main():
     version = args.version
     file = args.file
     delimiter = args.delimiter
-    version = version.replace("\'","\"")
+    prefix = prefix.replace("\'","\"")
 
     old_version = []
 
@@ -31,9 +31,9 @@ def main():
         old_version = re.findall('\d'+ delimiter +'\d'+ delimiter+'\d'+ delimiter + '\d+', prefix_line)
 
         if len(old_version) == 0:
-            old_version = re.findall('\d'+ delimiter +'\d'+ delimiter+'\d', prefix_line)
+            old_version = re.findall('\d+'+ delimiter +'\d+'+ delimiter+'\d+', prefix_line)
             if len(old_version) == 0:
-                old_version = re.findall('\d'+ delimiter +'\d', prefix_line)
+                old_version = re.findall('\d+'+ delimiter +'\d+', prefix_line)
                 if len(old_version) == 0: 
                     old_version = re.findall('\d+', prefix_line)
 
