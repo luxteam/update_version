@@ -17,7 +17,6 @@ def main():
     version = args.version
     file = args.file
     delimiter = args.delimiter
-    prefix = prefix.replace("\'","\"")
 
     old_version = []
 
