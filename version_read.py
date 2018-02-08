@@ -15,10 +15,7 @@ def main():
 	file = args.file
 	prefix = args.prefix
 	delimiter = args.delimiter
-	print(prefix)
 	prefix = prefix.replace("\'", "\"")
-	print(prefix)
-	print("!" + delimiter + "!")
 
 	old_version = []
 
@@ -26,8 +23,6 @@ def main():
 		for line in f:
 			if line.find(prefix) != -1:
 				prefix_line = line
-				print("!!!" + prefix_line)
-
 	try:
 
 		old_version = re.findall('\d'+ delimiter +'\d'+ delimiter +'\d'+ delimiter + '\d+', prefix_line)
