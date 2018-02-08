@@ -9,7 +9,7 @@ def main():
     parser.add_argument('--file', required = True, help = 'File with build version string')
     parser.add_argument('--prefix', required = True, help = 'Prefix before build version')
     parser.add_argument('--version', required = True, help = 'Version which will be written in file')
-    parser.add_argument('--delimiter', default = ".", required = True, help = 'Delimiter between numbers in version')
+    parser.add_argument('--delimiter', default = ".", help = 'Delimiter between numbers in version')
 
     args = parser.parse_args()
 
