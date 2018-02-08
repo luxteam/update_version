@@ -5,7 +5,7 @@ bl_info = {
     "description": "Radeon ProRender rendering plugin for Blender.",
     "author": "AMD",
 
-    "version": (1, 5, 0),
+    "version": (1, 5, 1),
 
     "blender": (2, 78, 0),
     "location": "Info header, render engine menu",
