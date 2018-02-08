@@ -17,7 +17,7 @@ node ("Windows && Builder")
     if (AUTHOR_NAME != "'radeonprorender'") {
         OLD_VERSION = bat (
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-                       python version_read.py --file init.py  --prefix "\"version\": (" --delimiter ", "  """,
+                       python version_read.py --file init.py  --prefix """"version""": (" --delimiter ", "  """,
             returnStdout: true
             ).split('\r\n')[4].trim()
         echo OLD_VERSION
