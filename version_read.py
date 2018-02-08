@@ -20,7 +20,6 @@ def main():
 
 	with open(file) as f:
 		for line in f:
-			print(line)
 			if line.find(prefix) != -1:
 				prefix_line = line
 				print("!!!" + prefix_line)
