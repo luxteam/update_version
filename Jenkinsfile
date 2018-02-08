@@ -17,7 +17,7 @@ node ("Windows && Builder")
     if (AUTHOR_NAME != "'radeonprorender'") {
         OLD_VERSION = bat (
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-                       python read_version.py --file version.h --prefix "#define version_build" """,
+                       python version_read.py --file init.py  --prefix """version"": (" --delimiter ", " """,
             returnStdout: true
             ).split('\r\n')[4].trim()
         echo OLD_VERSION
@@ -27,13 +27,13 @@ node ("Windows && Builder")
         
         NEW_VERSION = bat (
             script: """set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-                       python inc_version.py --version ${OLD_VERSION} --index 3 """,
+                       python version_inc.py --version ${OLD_VERSION} --index 3 --delimiter ", " """,
             returnStdout: true
             ).split('\r\n')[4].trim()
         echo NEW_VERSION
         bat """         
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
-            python write_version.py --file version.h --prefix "#define version_build" --version ${NEW_VERSION}
+            python version_write.py --file init.py --prefix """version"": (" --version ${NEW_VERSION} --delimiter ", "
             git add version.h
             git commit -m "Update version build"
             git push origin HEAD:master
