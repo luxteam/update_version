@@ -33,7 +33,7 @@ node ("Windows && Builder")
             python version_write.py --file init.py --prefix "'version': (" --version "${NEW_VERSION}" --delimiter ", "
             git add init.py
             git commit -m "Update version build"
-            git push origin HEAD:master
+            git push origin HEAD:Blender-test
            """
     }
     else {
