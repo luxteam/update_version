@@ -32,7 +32,7 @@ node ("Windows && Builder")
             set PATH=c:\\python35\\;c:\\python35\\scripts\\;%PATH%
             python version_write.py --file init.py --prefix "'version': (" --version "${NEW_VERSION}" --delimiter ", "
             git add init.py
-            git commit -m "Update version build"
+            git commit -m "Update version build: ${NEW_VERSION}"
             git push origin HEAD:Blender-test
            """
     }
